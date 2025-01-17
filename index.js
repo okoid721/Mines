@@ -1,7 +1,9 @@
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
+require("dotenv").config();
 
-const token = '7471452627:AAELAEQ8Oj07xavrLJvYZUikfWxwOdOeo00'; // Replace with your bot token
+
+const token = process.env.BOT_TOKEN; // Replace with your bot token
 const bot = new TelegramBot(token, { polling: true });
 
 const followChannelUsername = '@casinopredictor1'; // The channel users need to follow
