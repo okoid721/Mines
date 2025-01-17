@@ -1,4 +1,6 @@
 const TelegramBot = require('node-telegram-bot-api');
+const express = require('express');
+
 const token = '7471452627:AAELAEQ8Oj07xavrLJvYZUikfWxwOdOeo00'; // Replace with your bot token
 const bot = new TelegramBot(token, { polling: true });
 
@@ -137,3 +139,16 @@ function generateGrid() {
 
     return grid.map(row => row.join(' ')).join('\n'); // Convert to string
 }
+
+// Step 3: Set up Express server
+const app = express();
+const PORT = process.env.PORT || 3000; // Use environment variable or default to 3000
+
+app.get('/', (req, res) => {
+    res.send('Telegram Bot is running!'); // Simple response to check if the server is running
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
